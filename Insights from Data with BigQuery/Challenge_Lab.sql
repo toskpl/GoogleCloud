@@ -3,7 +3,7 @@
 --The query needs to return a single row containing the sum of confirmed cases across all countries. The name of the column should be total_cases_worldwide.
 
 SELECT sum(cumulative_confirmed) as total_cases_worldwide
-  FROM bigquery - public - data.covid19_open_data.covid19_open_data
+  FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
  where date = '2020-04-15';
  
  
@@ -13,7 +13,7 @@ SELECT sum(cumulative_confirmed) as total_cases_worldwide
 
 with deaths_by_states as
  (SELECT subregion1_name as state, sum(cumulative_deceased) as death_count
-    FROM bigquery - public - data.covid19_open_data.covid19_open_data
+    FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
    where country_name = "United States of America"
      and date = '2020-04-10'
      and subregion1_name is NOT NULL
@@ -32,7 +32,7 @@ select count(*) as count_of_states
 SELECT *
   FROM (SELECT subregion1_name as state,
                sum(cumulative_confirmed) as total_confirmed_cases
-          FROM bigquery - public - data.covid19_open_data.covid19_open_data
+          FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
          WHERE country_code = "US"
            AND date = '2020-04-10'
            AND subregion1_name is NOT NULL
@@ -48,7 +48,7 @@ SELECT *
 SELECT sum(cumulative_confirmed) as total_confirmed_cases,
        sum(cumulative_deceased) as total_deaths,
        (sum(cumulative_deceased) / sum(cumulative_confirmed)) * 100 as case_fatality_ratio
-  FROM bigquery - public - data.covid19_open_data.covid19_open_data
+  FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
  where country_name = "Italy"
    AND date BETWEEN '2020-04-01' and '2020-04-30';
 
@@ -56,7 +56,7 @@ SELECT sum(cumulative_confirmed) as total_confirmed_cases,
 --Query 5: Build a query for answering - On what day did the total number of deaths cross 10000 in Italy? The query should return the date in the format : yyyy-mm-dd.
 
 SELECT date
-  FROM bigquery - public - data.covid19_open_data.covid19_open_data
+  FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
  where country_name = "Italy"
    and cumulative_deceased > 10000
  order by date asc
@@ -69,7 +69,7 @@ SELECT date
 
 WITH india_cases_by_date AS
  (SELECT date, SUM(cumulative_confirmed) AS cases
-    FROM bigquery - public - data.covid19_open_data.covid19_open_data
+    FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
    WHERE country_name = "India"
      AND date between '2020-02-21' and '2020-03-15'
    GROUP BY date
@@ -92,7 +92,7 @@ select count(*) from india_previous_day_comparison where net_new_cases = 0
 
 WITH us_cases_by_date AS
  (SELECT date, SUM(cumulative_confirmed) AS cases
-    FROM bigquery - public - data.covid19_open_data.covid19_open_data
+    FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
    WHERE country_name = "United States of America"
      AND date between '2020-03-22' and '2020-04-20'
    GROUP BY date
@@ -119,7 +119,7 @@ WITH cases_by_country AS
  (SELECT country_name AS country,
          sum(cumulative_confirmed) AS cases,
          sum(cumulative_recovered) AS recovered_cases
-    FROM bigquery - public - data.covid19_open_data.covid19_open_data
+    FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
    WHERE date = '2020-05-10'
    GROUP BY country_name),
 recovered_rate AS
@@ -142,7 +142,7 @@ SELECT country, cases AS confirmed_cases, recovered_cases, recovery_rate
 
 WITH france_cases AS
  (SELECT date, SUM(cumulative_confirmed) AS total_cases
-    FROM bigquery - public - data.covid19_open_data.covid19_open_data
+    FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
    WHERE country_name = "France"
      AND date IN ('2020-01-24', '2020-05-10')
    GROUP BY date
@@ -165,7 +165,7 @@ select first_day_cases,
 SELECT date,
        SUM(cumulative_confirmed) AS country_cases,
        SUM(cumulative_deceased) AS country_deaths
-  FROM bigquery - public - data.covid19_open_data.covid19_open_data
+  FROM "bigquery - public - data.covid19_open_data.covid19_open_data"
  WHERE date BETWEEN '2020-03-15' AND '2020-04-30'
    AND country_name = "United States of America"
  GROUP BY date
