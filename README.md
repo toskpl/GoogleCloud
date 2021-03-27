@@ -6,3 +6,4 @@ Challenge 30 days - GoogleCloud
 - Perform Foundational Data, ML, and AI Tasks in Google Cloud
 - Insights from Data with BigQuery
 - Build and Optimize Data Warehouses with BigQuery
+- Create-ML-Models-with-BigQuery-ML
