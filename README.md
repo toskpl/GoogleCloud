@@ -7,3 +7,4 @@ Challenge 30 days - GoogleCloud
 - Insights from Data with BigQuery
 - Build and Optimize Data Warehouses with BigQuery
 - Create-ML-Models-with-BigQuery-ML
+- Engineer Data in Google Cloud
