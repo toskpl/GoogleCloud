@@ -9,3 +9,4 @@ Challenge 30 days - GoogleCloud
 - Create ML Models with BigQuery ML
 - Engineer Data in Google Cloud
 - Integrate with Machine Learning APIs
+- Explore Machine Learning Models with Explainable AI
