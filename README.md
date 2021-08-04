@@ -9,3 +9,4 @@ Challenge 30 days - GoogleCloud
 - Insights from Data with BigQuery
 - Integrate with Machine Learning APIs
 - Perform Foundational Data, ML, and AI Tasks in Google Cloud
+- Serverless Firebase Development
